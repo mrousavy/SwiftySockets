@@ -9,7 +9,9 @@
 import Foundation
 
 
-// The swifty socket class
+/**
+ The swifty socket class
+ */
 public class SwiftySocket {
     // Properties
     private var _ip: IPAddress
@@ -22,7 +24,7 @@ public class SwiftySocket {
     /**
      Create a new instance of the Swifty Socket class
      
-     @param ip The IP Address to host this socket on
+     - Parameter ip: The IP Address to host this socket on
     */
     init(ip: IPAddress) {
         _ip = ip
