@@ -16,7 +16,7 @@ enum InvalidIPAddressError: Error {
 /**
  A valid IPAddress
  */
-struct IPAddress {
+public struct IPAddress {
     // Properties
     private var _ip: String
     public var IP: String {
@@ -29,18 +29,20 @@ struct IPAddress {
      Create a new instance of the Swifty Socket class
      
      @param ip The IP Address to host this socket on
+     
+     @throws When the IP Address is not valid
      */
-    init(ip: String) {
-        if(validate(ip: ip)) {
-            _ip = ip
-        } else {
+    public init(ip: String) throws {
+        _ip = ip
+        if(!validate(ip: ip)) {
             throw InvalidIPAddressError.IPOutOfBounds(ip: ip)
         }
     }
     
-    func validate(ip: String) -> Bool {
-        let parts = s.componentsSeparatedByString(".")
+    private func validate(ip: String) -> Bool {
+        let parts = ip.components(separatedBy: ".")
         let nums = parts.flatMap { Int($0) }
-        return parts.count == 4 && nums.count == 4 && nums.filter { $0 >= 0 && $0 < 256}.count == 4
+        let isValid = parts.count == 4 && nums.count == 4 && nums.filter { $0 >= 0 && $0 < 256}.count == 4
+        return isValid
     }
 }

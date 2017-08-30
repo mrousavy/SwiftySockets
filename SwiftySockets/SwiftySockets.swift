@@ -9,6 +9,6 @@
 import Foundation
 
 
-func OpenNew(ip: String) -> SwiftySocket {
+func OpenNew(ip: IPAddress) -> SwiftySocket {
     return SwiftySocket(ip: ip)
 }
