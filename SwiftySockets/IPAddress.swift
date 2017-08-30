@@ -20,7 +20,7 @@ public enum InvalidIPAddressError: Error {
 /// 
 /// The Internet Protocol (IP) Address Family
 ///
-public enum AddressFamily {
+public enum IPAddressFamily {
     case IPv4
     case IPv6
 }
@@ -31,14 +31,14 @@ public enum AddressFamily {
 public struct IPAddress : CustomStringConvertible {
     // Properties
     private var _ip: String
-    private var _family: AddressFamily
+    private var _family: IPAddressFamily
     
     public var IP: String {
         get {
             return _ip
         }
     }
-    public var AddressFamily: AddressFamily {
+    public var AddressFamily: IPAddressFamily {
         get {
             return _family
         }
@@ -60,10 +60,10 @@ public struct IPAddress : CustomStringConvertible {
     ///
     /// - throws: When the IP Address is not valid
     ///
-    public init(ip: String, family: AddressFamily) throws {
+    public init(ip: String, family: IPAddressFamily) throws {
         _ip = ip
         _family = family
-        if(family == AddressFamily.IPv4){
+        if(family == IPAddressFamily.IPv4){
             if(!validateIPv4(ip: ip)) {
                 throw InvalidIPAddressError.IPOutOfBounds(ip: ip)
             }

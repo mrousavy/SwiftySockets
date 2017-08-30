@@ -170,5 +170,40 @@ public protocol SSLServiceDelegate {
     var negotiatedAlpnProtocol: String? { get }
     
     #endif
-    
+}
+
+
+///
+/// SSL Service Error
+///
+public enum SSLError: Error {
+	/// Retry needed
+	case retryNeeded
+	
+	/// Failure with error code and reason
+	case fail(Int, String)
+	
+	/// The error code itself
+	public var code: Int {
+		
+		switch self {
+		case .retryNeeded:
+			return -1
+			
+		case .fail(let (code, _)):
+			return Int(code)
+		}
+	}
+	
+	/// Error description
+	public var description: String {
+		
+		switch self {
+		case .retryNeeded:
+			return "Retry operation"
+			
+		case .fail(let (_, reason)):
+			return reason
+		}
+	}
 }
