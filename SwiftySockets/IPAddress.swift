@@ -13,8 +13,16 @@ import Foundation
 ///
 /// - IPOutOfBounds: The IP Address was out of bounds of valid IP Addresses (0-255.0-255.0-255.0-255)
 /// */
-enum InvalidIPAddressError: Error {
+public enum InvalidIPAddressError: Error {
     case IPOutOfBounds(ip: String)
+}
+
+/// 
+/// The Internet Protocol (IP) Address Family
+///
+public enum AddressFamily {
+    case IPv4
+    case IPv6
 }
 
 ///
@@ -44,24 +52,44 @@ public struct IPAddress : CustomStringConvertible {
     ///
     /// - throws: When the IP Address is not valid
     ///
-    public init(ip: String) throws {
+    public init(ip: String, family: AddressFamily) throws {
         _ip = ip
-        if(!validate(ip: ip)) {
-            throw InvalidIPAddressError.IPOutOfBounds(ip: ip)
+        if(family == AddressFamily.IPv4){
+            if(!validateIPv4(ip: ip)) {
+                throw InvalidIPAddressError.IPOutOfBounds(ip: ip)
+            }
+        }else{
+            if(!validateIPv6(ip: ip)) {
+                throw InvalidIPAddressError.IPOutOfBounds(ip: ip)
+            }
         }
     }
     
     ///
-    /// Validate a given IP Address
+    /// Validate a given IPv4 Address
     ///
     /// - Parameter ip: The IP Address to validate
     ///
     /// - returns: True if the IP Address is valid
     ///
-    private func validate(ip: String) -> Bool {
+    private func validateIPv4(ip: String) -> Bool {
         let parts = ip.components(separatedBy: ".")
         let nums = parts.flatMap { Int($0) }
         let isValid = parts.count == 4 && nums.count == 4 && nums.filter { $0 >= 0 && $0 < 256}.count == 4
+        return isValid
+    }
+    
+    ///
+    /// Validate a given IPv6 Address
+    ///
+    /// - Parameter ip: The IP Address to validate
+    ///
+    /// - returns: True if the IP Address is valid
+    ///
+    private func validateIPv6(ip: String) -> Bool {
+        //TODO: validate IPv6 address (RegEx?)
+        //let parts = ip.components(separatedBy: ":")
+        let isValid = true
         return isValid
     }
 }

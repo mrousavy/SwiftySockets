@@ -35,7 +35,7 @@ public class SwiftySocket : NetReader, NetWriter {
     ///
     /// - Parameter ip: The IP Address to host this socket on
     ///
-    init(ip: IPAddress) {
+    public init(ip: IPAddress) {
         _ip = ip
     }
 }
