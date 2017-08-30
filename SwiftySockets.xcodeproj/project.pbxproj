@@ -12,6 +12,7 @@
 		B87FBCF91F5698BD00751CF6 /* SwiftySockets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87FBCF81F5698BD00751CF6 /* SwiftySockets.swift */; };
 		B87FBCFB1F5698F500751CF6 /* SwiftySocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87FBCFA1F5698F500751CF6 /* SwiftySocket.swift */; };
 		B87FBCFD1F569B1900751CF6 /* IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87FBCFC1F569B1900751CF6 /* IPAddress.swift */; };
+		B87FBCFF1F56A1F900751CF6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87FBCFE1F56A1F900751CF6 /* Protocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		B87FBCF81F5698BD00751CF6 /* SwiftySockets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftySockets.swift; sourceTree = "<group>"; };
 		B87FBCFA1F5698F500751CF6 /* SwiftySocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftySocket.swift; sourceTree = "<group>"; };
 		B87FBCFC1F569B1900751CF6 /* IPAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPAddress.swift; sourceTree = "<group>"; };
+		B87FBCFE1F56A1F900751CF6 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				B87FBCF71F5698BC00751CF6 /* SwiftySockets-Bridging-Header.h */,
 				B87FBCFA1F5698F500751CF6 /* SwiftySocket.swift */,
 				B87FBCFC1F569B1900751CF6 /* IPAddress.swift */,
+				B87FBCFE1F56A1F900751CF6 /* Protocols.swift */,
 			);
 			path = SwiftySockets;
 			sourceTree = "<group>";
@@ -134,6 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B87FBCFF1F56A1F900751CF6 /* Protocols.swift in Sources */,
 				B87FBCFB1F5698F500751CF6 /* SwiftySocket.swift in Sources */,
 				B87FBCFD1F569B1900751CF6 /* IPAddress.swift in Sources */,
 				B87FBCF91F5698BD00751CF6 /* SwiftySockets.swift in Sources */,

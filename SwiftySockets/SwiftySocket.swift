@@ -6,14 +6,23 @@
 //  Copyright © 2017 mrousavy. All rights reserved.
 //
 
+#if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
+    import Darwin //NEEDED ON MACOS
+#elseif os(Linux)
+    import Glibc //NEEDED ON LINUX
+#endif
+
 import Foundation
 
 
-/**
- The swifty socket class
- */
-public class SwiftySocket {
-    // Properties
+///
+/// The swifty socket class
+///
+public class SwiftySocket : NetReader, NetWriter {
+    
+    
+    
+    /// Properties
     private var _ip: IPAddress
     public var IP: IPAddress {
         get {
@@ -21,11 +30,11 @@ public class SwiftySocket {
         }
     }
     
-    /**
-     Create a new instance of the Swifty Socket class
-     
-     - Parameter ip: The IP Address to host this socket on
-    */
+    ///
+    /// Create a new instance of the Swifty Socket class
+    ///
+    /// - Parameter ip: The IP Address to host this socket on
+    ///
     init(ip: IPAddress) {
         _ip = ip
     }
