@@ -79,7 +79,6 @@ public protocol NetWriter {
     /// - Throws: Throws when the write process could not
     /// be completed because of a connection error
     ///
-    ///
     @discardableResult func write(from string: String) throws -> Int
     
     ///

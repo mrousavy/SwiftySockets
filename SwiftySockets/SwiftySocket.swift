@@ -21,6 +21,68 @@ import Foundation
 public class SwiftySocket : NetReader, NetWriter {
     
     
+    ///
+    /// Reads a string from the connection.
+    ///
+    /// - Returns: The read string, or nil if none
+    ///
+    public func readString() throws -> String? {
+        
+    }
+    
+    ///
+    /// Reads all available data into an Data object.
+    ///
+    /// - Parameter data: Data object to contain read data.
+    ///
+    /// - Returns: Integer representing the number of bytes read.
+    ///
+    public func read(into data: inout Data) throws -> Int {
+        
+    }
+    
+    ///
+    /// Reads all available data into an NSMutableData object.
+    ///
+    /// - Parameter data: NSMutableData object to contain read data.
+    ///
+    /// - Returns: Integer representing the number of bytes read.
+    ///
+    public func read(into data: NSMutableData) throws -> Int {
+        
+    }
+    
+    
+    
+    ///
+    /// Writes a string to the connection
+    ///
+    /// - Parameter string: String data to be written.
+    ///
+    /// - Throws: Throws when the write process could not
+    /// be completed because of a connection error
+    ///
+    public func write(from string: String) throws -> Int {
+        code
+    }
+    
+    ///
+    /// Writes data from Data object.
+    ///
+    /// - Parameter data: Data object containing the data to be written.
+    ///
+    public func write(from data: Data) throws -> Int {
+        <#code#>
+    }
+    ///
+    /// Writes data from NSData object.
+    ///
+    /// - Parameter data: NSData object containing the data to be written.
+    ///
+    public func write(from data: NSData) throws -> Int {
+        <#code#>
+    }
+    
     
     /// Properties
     private var _ip: IPAddress

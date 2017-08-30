@@ -31,11 +31,19 @@ public enum AddressFamily {
 public struct IPAddress : CustomStringConvertible {
     // Properties
     private var _ip: String
+    private var _family: AddressFamily
+    
     public var IP: String {
         get {
             return _ip
         }
     }
+    public var AddressFamily: AddressFamily {
+        get {
+            return _family
+        }
+    }
+    
     
     public var description: String {
         return IP
@@ -54,6 +62,7 @@ public struct IPAddress : CustomStringConvertible {
     ///
     public init(ip: String, family: AddressFamily) throws {
         _ip = ip
+        _family = family
         if(family == AddressFamily.IPv4){
             if(!validateIPv4(ip: ip)) {
                 throw InvalidIPAddressError.IPOutOfBounds(ip: ip)
