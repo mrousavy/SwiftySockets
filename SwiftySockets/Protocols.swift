@@ -74,12 +74,12 @@ public protocol NetWriter {
     ///
     /// Writes a string to the connection
     ///
-    /// - Parameter string: String data to be written.
+    /// - Parameter data: String data to be written.
     ///
     /// - Throws: Throws when the write process could not
     /// be completed because of a connection error
     ///
-    @discardableResult func write(from string: String) throws -> Int
+    @discardableResult func write(from data: String) throws -> Int
     
     ///
     /// Writes data from Data object.
