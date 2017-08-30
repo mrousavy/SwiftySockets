@@ -1,10 +1,9 @@
 <p align="center">
-  <img align="right" src="https://raw.githubusercontent.com/mrousavy/SwiftySockets/master/Images/swift_icon.png" height="120" />
+  <img align="right" src="https://github.com/mrousavy/SwiftySockets/raw/master/Images/swift_icon.png" height="120" />
   <h1 align="left">SwiftySockets</h3>
   <p align="left">Fancy sockets for servers and clients for swift</p>
   <p align="left">
-    <a href="http://nuget.org/packages/Morph/"><img src="https://img.shields.io/badge/nuget-Morph-blue.svg" alt="Morph on NuGet"></a>
-    <a href="https://ci.appveyor.com/project/mrousavy/morph"><img src="https://ci.appveyor.com/api/projects/status/k6dd0rtskfjxrw4o?svg=true" alt="Morph build status"></a>
+    <a href="https://ci.appveyor.com/project/mrousavy/SwiftySockets"><img src="https://ci.appveyor.com/api/projects/status/_________?svg=true" alt="SwiftySockets AppVeyor build status"></a>
   </p>
 </p>
 
