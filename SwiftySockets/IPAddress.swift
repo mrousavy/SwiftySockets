@@ -8,7 +8,11 @@
 
 import Foundation
 
-
+/**
+ A invalid IP Address error
+ 
+ - IPOutOfBounds: The IP Address was out of bounds of valid IP Addresses (0-255.0-255.0-255.0-255)
+ */
 enum InvalidIPAddressError: Error {
     case IPOutOfBounds(ip: String)
 }
@@ -16,7 +20,7 @@ enum InvalidIPAddressError: Error {
 /**
  A valid IPAddress
  */
-public struct IPAddress {
+public struct IPAddress : CustomStringConvertible {
     // Properties
     private var _ip: String
     public var IP: String {
@@ -25,12 +29,20 @@ public struct IPAddress {
         }
     }
     
+    public var description: String {
+        return IP
+    }
+    
+    public func toString() -> String {
+        return IP
+    }
+    
     /**
      Create a new instance of the Swifty Socket class
      
-     @param ip The IP Address to host this socket on
+     - parameter ip: The IP Address to host this socket on
      
-     @throws When the IP Address is not valid
+     - throws: When the IP Address is not valid
      */
     public init(ip: String) throws {
         _ip = ip
@@ -39,6 +51,13 @@ public struct IPAddress {
         }
     }
     
+    /**
+     Validate a given IP Address
+     
+     - Parameter ip: The IP Address to validate
+     
+     - returns: True if the IP Address is valid
+    */
     private func validate(ip: String) -> Bool {
         let parts = ip.components(separatedBy: ".")
         let nums = parts.flatMap { Int($0) }
