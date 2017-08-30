@@ -9,12 +9,19 @@
 /* Begin PBXBuildFile section */
 		B87FBCEF1F5697B200751CF6 /* SwiftySockets.h in Headers */ = {isa = PBXBuildFile; fileRef = B87FBCEE1F5697B200751CF6 /* SwiftySockets.h */; };
 		B87FBCF11F5697B200751CF6 /* SwiftySockets.m in Sources */ = {isa = PBXBuildFile; fileRef = B87FBCF01F5697B200751CF6 /* SwiftySockets.m */; };
+		B87FBCF91F5698BD00751CF6 /* SwiftySockets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87FBCF81F5698BD00751CF6 /* SwiftySockets.swift */; };
+		B87FBCFB1F5698F500751CF6 /* SwiftySocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87FBCFA1F5698F500751CF6 /* SwiftySocket.swift */; };
+		B87FBCFD1F569B1900751CF6 /* IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87FBCFC1F569B1900751CF6 /* IPAddress.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B87FBCEB1F5697B200751CF6 /* libSwiftySockets.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libSwiftySockets.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		B87FBCEE1F5697B200751CF6 /* SwiftySockets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftySockets.h; sourceTree = "<group>"; };
 		B87FBCF01F5697B200751CF6 /* SwiftySockets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwiftySockets.m; sourceTree = "<group>"; };
+		B87FBCF71F5698BC00751CF6 /* SwiftySockets-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftySockets-Bridging-Header.h"; sourceTree = "<group>"; };
+		B87FBCF81F5698BD00751CF6 /* SwiftySockets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftySockets.swift; sourceTree = "<group>"; };
+		B87FBCFA1F5698F500751CF6 /* SwiftySocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftySocket.swift; sourceTree = "<group>"; };
+		B87FBCFC1F569B1900751CF6 /* IPAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPAddress.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +56,10 @@
 			children = (
 				B87FBCEE1F5697B200751CF6 /* SwiftySockets.h */,
 				B87FBCF01F5697B200751CF6 /* SwiftySockets.m */,
+				B87FBCF81F5698BD00751CF6 /* SwiftySockets.swift */,
+				B87FBCF71F5698BC00751CF6 /* SwiftySockets-Bridging-Header.h */,
+				B87FBCFA1F5698F500751CF6 /* SwiftySocket.swift */,
+				B87FBCFC1F569B1900751CF6 /* IPAddress.swift */,
 			);
 			path = SwiftySockets;
 			sourceTree = "<group>";
@@ -95,6 +106,7 @@
 				TargetAttributes = {
 					B87FBCEA1F5697B200751CF6 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -121,6 +133,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B87FBCFB1F5698F500751CF6 /* SwiftySocket.swift in Sources */,
+				B87FBCFD1F569B1900751CF6 /* IPAddress.swift in Sources */,
+				B87FBCF91F5698BD00751CF6 /* SwiftySockets.swift in Sources */,
 				B87FBCF11F5697B200751CF6 /* SwiftySockets.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,20 +235,29 @@
 		B87FBCF51F5697B200751CF6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = lib;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftySockets/SwiftySockets-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		B87FBCF61F5697B200751CF6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = lib;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftySockets/SwiftySockets-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -256,6 +280,7 @@
 				B87FBCF61F5697B200751CF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
