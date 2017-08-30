@@ -95,3 +95,80 @@ public protocol NetWriter {
     ///
     @discardableResult func write(from data: NSData) throws -> Int
 }
+
+
+
+
+///
+/// A protocol to buffered-write and read onto a network connection with SSL en/decryption
+///
+public protocol SSLServiceDelegate {
+    
+    ///
+    /// Initialize SSL Service
+    ///
+    /// - Parameter asServer:	True for initializing a server, otherwise a client.
+    ///
+    init(asServer: Bool) throws
+    
+    
+    ///
+    /// Deinitialize SSL Service
+    ///
+    func deinitialize()
+    
+    ///
+    /// Connection accepted callback
+    ///
+    /// - Parameter socket:	The associated Socket instance.
+    ///
+    func onAccept(socket: SwiftySocket) throws
+    
+    ///
+    /// Connection established callback
+    ///
+    /// - Parameter socket:	The associated Socket instance.
+    ///
+    func onConnect(socket: SwiftySocket) throws
+    
+    ///
+    /// Low level writer
+    ///
+    /// - Parameters:
+    ///		- buffer:		Buffer pointer.
+    ///		- bufSize:		Size of the buffer.
+    ///
+    ///	- Returns the number of bytes written.
+    ///
+    func send(buffer: UnsafeRawPointer, bufSize: Int) throws -> Int
+    
+    ///
+    /// Low level reader
+    ///
+    /// - Parameters:
+    ///		- buffer:		Buffer pointer.
+    ///		- bufSize:		Size of the buffer.
+    ///
+    ///	- Returns the number of bytes read.
+    ///
+    func receive(buffer: UnsafeMutableRawPointer, bufSize: Int) throws -> Int
+    
+    #if os(Linux)
+    
+    ///
+    /// Add a protocol to the list of supported ALPN protocol names. E.g. 'http/1.1' and 'h2'.
+    ///
+    /// - Parameters:
+    ///		- proto:		The protocol name to be added (e.g. 'h2').
+    ///
+    func addSupportedAlpnProtocol(proto: String)
+    
+    ///
+    /// The negotiated ALPN protocol that has been agreed upon during the handshaking phase.
+    /// Will be nil if ALPN hasn't been used or requestsed protocol is not available.
+    ///
+    var negotiatedAlpnProtocol: String? { get }
+    
+    #endif
+    
+}

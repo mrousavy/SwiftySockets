@@ -54,3 +54,8 @@ client.read(data: &data)
 var mdata = NSMutableData()
 client.read(data: &mdata)
 ```
+
+
+
+
+_Inspired by [BlueSocket](https://github.com/IBM-Swift/BlueSocket)_
