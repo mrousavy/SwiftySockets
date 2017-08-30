@@ -14,13 +14,54 @@
 
 import Foundation
 
+public class SocketError : Error {
+    public var code
+    
+    public init(code: Int) {
+        self.code = code
+    }
+}
 
 ///
 /// The swifty socket class
 ///
 public class SwiftySocket : NetReader, NetWriter {
+    /// CONSTANTS
+    public static let DEF_READ_BUFFER_SIZE: Int = 1024
+    public static let DEF_WRITE_BUFFER_SIZE: Int = 1024
     
     
+    /// ERROR CODES
+    public var INVALID_BUFFER: Int = 0
+    public var NOT_CONNECTED: Int = 1
+    
+    /// Properties
+    private var _ip: IPAddress
+    private var _isConnected: Bool
+    private var _cache: NSMutableData
+    public var IP: IPAddress {
+        return _ip
+    }
+    public var isConnected: Bool {
+        return _isConnected
+    }
+    public var cache: NSMutableData {
+        return _cache
+    }
+    
+    ///
+    /// Create a new instance of the Swifty Socket class
+    ///
+    /// - Parameter ip: The IP Address to host this socket on
+    ///
+    public init(ip: IPAddress) {
+        _ip = ip
+        _isConnected = false
+        _cache = NSMutableData(capacity: DEF_READ_BUFFER_SIZE)!
+    }
+    
+    
+        
     ///
     /// Reads a string from the connection.
     ///
@@ -83,21 +124,4 @@ public class SwiftySocket : NetReader, NetWriter {
         <#code#>
     }
     
-    
-    /// Properties
-    private var _ip: IPAddress
-    public var IP: IPAddress {
-        get {
-            return _ip
-        }
-    }
-    
-    ///
-    /// Create a new instance of the Swifty Socket class
-    ///
-    /// - Parameter ip: The IP Address to host this socket on
-    ///
-    public init(ip: IPAddress) {
-        _ip = ip
-    }
 }
